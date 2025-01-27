@@ -5,6 +5,7 @@ build-backend = "scikit_build_core.build"
 [project]
 name = "rocprofiler-register"
 readme = "README.md"
+requires-python = ">=3.7"
 dynamic = ["version"]
 
 [tool.scikit-build.metadata.version]
@@ -19,6 +20,11 @@ cmake.args = [
     "-DROCPROFILER_REGISTER_BUILD_TESTS=ON",
     "-DROCPROFILER_REGISTER_BUILD_SAMPLES=ON"
 ]
+
+[tool.cibuildwheel]
+build = "cp3*manylinux*"
+manylinux-x86_64-image = "manylinux_2_28"
+archs = ["x86_64"]
 
 [tool.black]
 line-length = 90
