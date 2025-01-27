@@ -1,3 +1,28 @@
+[build-system]
+requires = [
+    "setuptools",
+    "scikit-build",
+    "cmake",
+    "ninja",
+]
+build-backend = "scikit-build"
+
+[project]
+name = "rocprofiler-register"
+readme = "README.md"
+requires-python = ">=3.8"
+dynamic = ["version"]
+
+[tool.scikit-build.metadata.version]
+provider = "scikit-build"
+input = "VERSION"
+
+[tool.scikit-build]
+build.verbose = true
+cmake = [
+    "-DROCPROFILER_REGISTER_BUILD_TESTS=ON",
+    "-DROCPROFILER_REGISTER_BUILD_SAMPLES=ON"
+]
 
 [tool.black]
 line-length = 90
