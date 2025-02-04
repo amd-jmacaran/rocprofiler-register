@@ -16,13 +16,14 @@ result = "{version}"
 
 [tool.scikit-build]
 build.verbose = true
+wheel.py-api = "cp37"
 cmake.args = [
     "-DROCPROFILER_REGISTER_BUILD_TESTS=ON",
     "-DROCPROFILER_REGISTER_BUILD_SAMPLES=ON"
 ]
 
 [tool.cibuildwheel]
-build = "cp3*manylinux*"
+build = "cp37*manylinux*"
 manylinux-x86_64-image = "manylinux_2_28"
 archs = ["x86_64"]
 
